@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script language="JavaScript">
+    function test() {
+        var val1 = parseInt(document.kirim.T1.value);
+        if (document.kirim.T1.value === "") {
+            alert("masukkan bilangan bulat yang valid.");
+            return;
+        }
+        if (!isNaN(val1)) {
+            if (val1 % 2 == 0) {
+                document.kirim.T2.value = "bilangan genap";
+            } else { 
+                document.kirim.T2.value = "bilangan ganjil";
+            }
+        } else {
+            alert("masukkan bilangan bulat yang valid.");
+        }
+    }
+   </script>
+</head>
+<body>
+
+    <form method="post" name="kirim">
+        <p>BIL<input type="text" name="T1" size="20"> Merupakan BIL
+                <input type="text" name="T2" size="20">
+        </p>
+        <p><input type="button" value="Tebak" name="B1" onclick="test()"></p>
+    </form>
+    
+</body>
+</html>
