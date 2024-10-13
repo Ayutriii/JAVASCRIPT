@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Soal tantangan 2</title>
+    <script>
+        function penjumlahan() {
+            var a = parseInt(document.kirim.B1.value);
+            var b = parseInt(document.kirim.B2.value);
+            var T;
+
+            // Validasi input
+            if (isNaN(a) || isNaN(b)) {
+                document.kirim.hasil.value = "invalid";
+                return;
+            }
+
+            T = a + b; 
+            document.kirim.hasil.value = T; 
+        }
+        function pengurangan() {
+            var a = parseInt(document.kirim.B1.value);
+            var b = parseInt(document.kirim.B2.value);
+            var T;
+
+            // Validasi input
+            if (isNaN(a) || isNaN(b)) {
+                document.kirim.hasil.value = "invalid";
+                return;
+            }
+
+            T = a - b; 
+            document.kirim.hasil.value = T; 
+        }
+        function perkalian() {
+            var a = parseInt(document.kirim.B1.value);
+            var b = parseInt(document.kirim.B2.value);
+            var T;
+
+            // Validasi input
+            if (isNaN(a) || isNaN(b)) {
+                document.kirim.hasil.value = "invalid";
+                return;
+            }
+
+            T = a * b; 
+            document.kirim.hasil.value = T; 
+        }
+
+        function pembagian() {
+            var a = parseInt(document.kirim.B1.value);
+            var b = parseInt(document.kirim.B2.value);
+            var T;
+
+            // Validasi input
+            if (isNaN(a) || isNaN(b)) {
+                document.kirim.hasil.value = "invalid";
+                return;
+            }
+
+            T = a / b; 
+            document.kirim.hasil.value = T; 
+        }
+    </script>
+</head>
+<body>
+    <form method="post" name="kirim">
+        <p>Bil 1 <input type="text" name="B1" size="20"></p>
+        <p>Bil 2 <input type="text" name="B2" size="20"></p>
+        <p>Hasil <input type="text" name="hasil" size="20" readonly></p>
+        <p><input type="button" value="+" name="Tambah" onclick="penjumlahan()">
+        <input type="button" value="-" name="kurang" onclick="pengurangan()">
+        <input type="button" value="x" name="kali" onclick="perkalian()">
+        <input type="button" value="/" name="bagi" onclick="pembagian()">
+    </p>
+    </form>
+</body>
+</html>
