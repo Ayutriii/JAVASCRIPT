@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <script>
+        function calculate(operation) {
+            var bil1 = parseFloat(document.getElementById("bil1").value);
+            var bil2 = parseFloat(document.getElementById("bil2").value);
+            var hasil;
+
+            if (isNaN(bil1) || isNaN(bil2)) {
+                hasil = "Input tidak valid";
+            } else {
+                if (operation === '+') {
+                    hasil = bil1 + bil2;
+                } else if (operation === '-') {
+                    hasil = bil1 - bil2;
+                } else if (operation === '*') {
+                    hasil = bil1 * bil2;
+                } else if (operation === '/') {
+                    if (bil2 === 0) {
+                        hasil = "Tidak bisa dibagi nol";
+                    } else {
+                        hasil = bil1 / bil2;
+                    }
+                }
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <label for="bil1">Bil 1:</label>
+    <input type="number" id="bil1"><br><br>
+    <label for="bil2">Bil 2:</label>
+    <input type="number" id="bil2"><br><br>
+    <label for="hasil">Hasil:</label>
+    <input type="text" id="hasil" readonly><br><br>
+
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">x</button>
+    <button onclick="calculate('/')">/</button>
+</body>
+</html>
