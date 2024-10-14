@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator Sederhana</title>
+</head>
+<body>
+  <h1>Kalkulator Sederhana</h1>
+  <p>Bil 1 <input type="number" id="bil1"></p>
+  <p>Bil 2 <input type="number" id="bil2"></p>
+  <p>Hasil <input type="text" id="hasil" readonly></p>
+  <div>
+    <button onclick="hitung('+')">+</button>
+    <button onclick="hitung('-')">-</button>
+    <button onclick="hitung('*')">x</button>
+    <button onclick="hitung('/')">/</button>
+  </div>
+
+  <script>
+    function hitung(operasi) {
+      const bil1 = parseFloat(document.getElementById("bil1").value);
+      const bil2 = parseFloat(document.getElementById("bil2").value);
+      let hasil = "tidak terdefinisi";
+      if (!isNaN(bil1) && !isNaN(bil2)) {
+        hasil = operasi === '/' && bil2 === 0 ? hasil : eval(`${bil1} ${operasi} ${bil2}`);
+      }
+      document.getElementById("hasil").value = hasil;
+      if (operasi === '/' && bil2 === 0) alert("Tidak dapat dibagi dengan nol");
+    }
+  </script>
+</body>
+</html>
