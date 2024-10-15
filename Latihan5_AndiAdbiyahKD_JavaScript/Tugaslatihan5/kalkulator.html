@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <script>
+        function hitung(operasi) {
+            var bil1 = parseFloat(document.getElementById("bil1").value);
+            var bil2 = parseFloat(document.getElementById("bil2").value);
+            var hasil;
+
+            switch(operasi) {
+                case '+':
+                    hasil = bil1 + bil2;
+                    break;
+                case '-':
+                    hasil = bil1 - bil2;
+                    break;
+                case '*':
+                    hasil = bil1 * bil2;
+                    break;
+                case '/':
+                    hasil = bil1 / bil2;
+                    break;
+                default:
+                    hasil = "Operasi tidak valid";
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <p>Bilangan 1:</p>
+    <input type="number" id="bil1" placeholder="Masukkan bilangan 1">
+    <p>Bilangan 2:</p>
+    <input type="number" id="bil2" placeholder="Masukkan bilangan 2">
+    <p>Hasil:</p>
+    <input type="text" id="hasil" readonly>
+
+    <br><br>
+    <button onclick="hitung('+')">+</button>
+    <button onclick="hitung('-')">-</button>
+    <button onclick="hitung('*')">x</button>
+    <button onclick="hitung('/')">/</button>
+</body>
+</html>
