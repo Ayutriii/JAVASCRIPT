@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi</title>
+</head>
+<body>
+    <h1>Konversi Nilai</h1>
+
+    <label for="nilai">Masukkan Nilai:</label>
+    <input type="number" id="angka" name="angka">
+    <button onclick="konversi()">Konversi</button> <br><br>
+
+    <p id="hasil"></p>
+
+<script>
+function konversi() {
+  var angka = document.getElementById("angka").value;
+  var hasil = "";
+  if (angka >= 0 && angka <= 40) {
+    hasil = "E";
+  } else if (angka >= 41 && angka <= 55) {
+    hasil = "D";
+  } else if (angka >= 56 && angka <= 60) {
+    hasil = "C";
+  } else if (angka >= 61 && angka <= 65) {
+    hasil = "BC";
+  } else if (angka >= 66 && angka <= 70) {
+    hasil = "B";
+  } else if (angka >= 71 && angka <= 80) {
+    hasil = "AB";
+  } else if (angka >= 81 && angka <= 100) {
+    hasil = "A";
+  } else {
+    hasil = "Rentang Nilai hanya sampai 100 ";
+  }
+  document.getElementById("hasil").innerHTML = "Hasil Konversi: " + hasil;
+}
+</script>
+</body>
+</html>

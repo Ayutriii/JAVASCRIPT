@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+
+    <label for="bil1">Bilangan 1:</label>
+    <input type="text" id="bil1" value=""> <br><br>
+
+    <label for="bil2">Bilangan 2:</label>
+    <input type="text" id="bil2" value=""> <br><br>
+
+    <label for="hasil">hasil:</label>
+    <input type="text" id="hasil" readonly value=""> <br><br>
+
+    <button onclick="tambah()">+</button>
+    <button onclick="kurang()">-</button>
+    <button onclick="kali()">x</button>
+    <button onclick="bagi()">/</button>
+
+<script>
+function tambah() {
+  var bil1 = parseFloat(document.getElementById("bil1").value);
+  var bil2 = parseFloat(document.getElementById("bil2").value);
+  var hasil = bil1 + bil2;
+  document.getElementById("hasil").value = hasil;
+}
+
+function kurang() {
+  var bil1 = parseFloat(document.getElementById("bil1").value);
+  var bil2 = parseFloat(document.getElementById("bil2").value);
+  var hasil = bil1 - bil2;
+  document.getElementById("hasil").value = hasil;
+}
+
+function kali() {
+  var bil1 = parseFloat(document.getElementById("bil1").value);
+  var bil2 = parseFloat(document.getElementById("bil2").value);
+  var hasil = bil1 * bil2;
+  document.getElementById("hasil").value = hasil;
+}
+
+function bagi() {
+  var bil1 = parseFloat(document.getElementById("bil1").value);
+  var bil2 = parseFloat(document.getElementById("bil2").value);
+  if (bil2 == 0) {
+    document.getElementById("hasil").value = "Pembagian dengan 0";
+  } else {
+    var hasil = bil1 / bil2;
+    document.getElementById("hasil").value = hasil;
+  }
+}
+</script>
+</body>
+</html>
