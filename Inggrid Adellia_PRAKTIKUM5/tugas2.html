@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kalkulator Sederhana</title>
+        <script>
+            function hitung(operasi) {
+                var bil1 = parseFloat(document.getElementById("bil1").value);
+                var bil2 = parseFloat(document.getElementById("bil2").value);
+                var hasil = 0;
+
+                if (operasi == '+') {
+                    hasil = bil1 + bil2;
+                } else if (operasi == '-') {
+                    hasil = bil1 - bil2;
+                } else if (operasi == '*') {
+                    hasil = bil1 * bil2;
+                } else if (operasi == '/') {
+                    if (bil2 != 0) {
+                        hasil = bil1 / bil2;
+                    } else {
+                        hasil = "Tidak dapat dibagi 0";
+                    }
+                }
+
+                 document.getElementById("hasil").value = hasil;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Kalkulator Sederhana</h1>
+
+        <p>Bil 1: <input type="text" id="bil1" placeholder="Masukkan bilangan pertama"></p>
+
+        <p>Bil 2: <input type="text" id="bil2" placeholder="Masukkan bilangan kedua"></p>
+
+        <p>
+            <button onclick="hitung('+')">+</button>
+            <button onclick="hitung('-')">-</button>
+            <button onclick="hitung('*')">x</button>
+            <button onclick="hitung('/')">/</button>
+        </p>
+
+        <p>Hasil: <input type="text" id="hasil" readonly></p>
+
+    </body>
+</html>
