@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2</title>
+</head>
+<body>
+    <h2>Kalkulator</h2>
+    <p>
+        Bil 1 <input type="text" name="B1" id="B1" size="22"/><br><br>
+        Bil 2 <input type="text" name="B2" id="B2" size="22"/><br><br>
+        Hasil <input type="text" name="result" id="result" size="22"/><br>
+    </p>
+    <button onclick="tambah()">+</button>
+    <button onclick="kurang()">-</button>
+    <button onclick="kali()">x</button>
+    <button onclick="bagi()">/</button>
+
+    <script>
+        function getInputValues() {
+            var bil1 = parseFloat(document.getElementById("B1").value);
+            var bil2 = parseFloat(document.getElementById("B2").value);
+            return { bil1, bil2 };
+        }
+
+        function tambah() {
+            var {bil1, bil2} =getInputValues();
+            document.getElementById("result").value = bil1 + bil2;
+        }
+        function kurang() {
+            var {bil1, bil2} =getInputValues();
+            document.getElementById("result").value = bil1 - bil2;
+        }
+        function kali() {
+            var {bil1, bil2} =getInputValues();
+            document.getElementById("result").value = bil1 * bil2;
+        }
+        function bagi() {
+            var {bil1, bil2} =getInputValues();
+            if (bil2 !== 0) {
+                document.getElementById("result").value = bil1 / bil2;
+            } else {
+                document.getElementById("result").value = "Tidak dapat dibagi dengan 0";
+            }
+        }
+    </script>
+</body>
+</html>
