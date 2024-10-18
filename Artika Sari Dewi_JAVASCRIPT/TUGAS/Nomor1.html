@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script language="javascript">
+        function test(){
+            var angka = parseInt(document.kirim.A1.value);
+            if (!isNaN(angka)) {
+                if(angka >= 0 && angka <= 40)
+                document.kirim.A2.value = "E";
+            else if(angka >= 41 && angka <= 55)
+                document.kirim.A2.value = "D";
+            else if(angka >= 56 && angka <= 60)
+                document.kirim.A2.value = "C";
+            else if(angka >= 61 && angka <= 65)
+                document.kirim.A2.value = "BC";
+            else if(angka >= 66 && angka <= 70)
+                document.kirim.A2.value = "B";
+            else if(angka >= 71 && angka <= 80)
+                document.kirim.A2.value = "AB";
+            else if(angka >= 81 && angka <= 100)
+                document.kirim.A2.value = "A";
+            }else{
+                alert("Angka Tidak Valid.");
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <form method="POST" name="kirim">
+            <p>Angka <input type="text" name="A1" size="20"> 
+                MERUPAKAN HURUF <input type="text" name="A2" size="20"></p>
+            <p><input type="button" value="TEBAK" name="B1" onclick="test()"></p>
+        </form>
+    </body>
+</html>
