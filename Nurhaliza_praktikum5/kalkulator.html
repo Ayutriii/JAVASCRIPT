@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Kalkulator</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+
+    <label for="angka1">Angka 1:</label>
+    <input type="text" id="angka1" value=""> <br><br>
+
+    <label for="angka2">Angka 2:</label>
+    <input type="text" id="angka2" value=""> <br><br>
+
+    <label for="output">Hasil:</label>
+    <input type="text" id="output" readonly value=""> <br><br>
+
+    <button onclick="penjumlahan()">+</button>
+    <button onclick="pengurangan()">-</button>
+    <button onclick="perkalian()">x</button>
+    <button onclick="pembagian()">/</button>
+
+<script>
+function penjumlahan() {
+  var nilai1 = parseFloat(document.getElementById("angka1").value);
+  var nilai2 = parseFloat(document.getElementById("angka2").value);
+  var total = nilai1 + nilai2;
+  document.getElementById("output").value = total;
+}
+
+function pengurangan() {
+  var nilai1 = parseFloat(document.getElementById("angka1").value);
+  var nilai2 = parseFloat(document.getElementById("angka2").value);
+  var total = nilai1 - nilai2;
+  document.getElementById("output").value = total;
+}
+
+function perkalian() {
+  var nilai1 = parseFloat(document.getElementById("angka1").value);
+  var nilai2 = parseFloat(document.getElementById("angka2").value);
+  var total = nilai1 * nilai2;
+  document.getElementById("output").value = total;
+}
+
+function pembagian() {
+  var nilai1 = parseFloat(document.getElementById("angka1").value);
+  var nilai2 = parseFloat(document.getElementById("angka2").value);
+  if (nilai2 == 0) {
+    document.getElementById("output").value = "Pembagian dengan 0";
+  } else {
+    var total = nilai1 / nilai2;
+    document.getElementById("output").value = total;
+  }
+}
+</script>
+</body>
+</html>
