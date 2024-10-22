@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <script>
+
+        function hitung(operasi) {
+            let bil1 = parseFloat(document.getElementById("bil1").value);
+            let bil2 = parseFloat(document.getElementById("bil2").value);
+            let hasil;
+
+            if (isNaN(bil1) || isNaN(bil2)) {
+                alert("Masukkan angka yang valid!");
+                document.getElementById("hasil").value = "";
+                return;
+            }
+
+            if (operasi === '+') {
+                hasil = bil1 + bil2;
+            } else if (operasi === '-') {
+                hasil = bil1 - bil2;
+            } else if (operasi === '*') {
+                hasil = bil1 * bil2;
+            } else if (operasi === '/') {
+                if (bil2 === 0) {
+                    alert("Pembagian dengan 0 tidak valid!");
+                    hasil = "";
+                } else {
+                    hasil = bil1 / bil2;
+                }
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <form>
+        <label for="bil1">Bil 1:</label>
+        <input type="text" id="bil1" size="10" placeholder="Masukkan angka"><br><br>
+
+        <label for="bil2">Bil 2:</label>
+        <input type="text" id="bil2" size="10" placeholder="Masukkan angka"><br><br>
+
+        <input type="button" value="+" onclick="hitung('+')">
+        <input type="button" value="-" onclick="hitung('-')">
+        <input type="button" value="x" onclick="hitung('*')">
+        <input type="button" value="/" onclick="hitung('/')"><br><br>
+
+        <label for="hasil">Hasil:</label>
+        <input type="text" id="hasil" size="10" readonly>
+    </form>
+</body>
+</html>
