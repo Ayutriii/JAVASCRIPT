@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Contoh variabel</h2>
+
+<p>Jika x=10 dan y=12</p>
+<p>Berapa hasil dari x + y ?</p>
+
+<p id="demo"></p>
+<script>
+var x=10;
+var y=12;
+var hasil=x+y;
+document.getElementById("demo").innerHTML =
+"Jawaban Hasil dari x + y adalah : " + hasil;
+</script>
+
+</body>
+</html>

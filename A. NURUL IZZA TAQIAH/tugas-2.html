@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kalkulator Sederhana</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding:24px; max-width:480px; margin:auto; }
+    .row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    label { width:60px; }
+    input[type="number"] { flex:1; padding:6px; }
+    input[readonly] { background:#f4f4f4; }
+    .ops { display:flex; gap:8px; margin-top:12px; }
+    .ops button { padding:12px 16px; min-width:48px; font-size:16px; }
+    .err { color:#b00020; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator Sederhana</h1>
+
+  <div class="row">
+    <label for="bil1">Bil 1</label>
+    <input id="bil1" type="number" step="any" />
+  </div>
+
+  <div class="row">
+    <label for="bil2">Bil 2</label>
+    <input id="bil2" type="number" step="any" />
+  </div>
+
+  <div class="row">
+    <label for="hasil">Hasil</label>
+    <input id="hasil" type="text" readonly />
+  </div>
+
+  <div class="ops" role="group" aria-label="Operasi aritmetika">
+    <button id="tambah">+</button>
+    <button id="kurang">-</button>
+    <button id="kali">×</button>
+    <button id="bagi">/</button>
+    <button id="clear">C</button>
+  </div>
+
+  <div id="pesan" class="err" aria-live="polite"></div>
+
+  <script>
+    const bil1 = document.getElementById('bil1');
+    const bil2 = document.getElementById('bil2');
+    const hasil = document.getElementById('hasil');
+    const pesan = document.getElementById('pesan');
+
+    function bacaAngka(inputEl) {
+      const v = inputEl.value;
+      if (v === '') return null;
+      const n = Number(v);
+      if (!Number.isFinite(n)) return NaN;
+      return n;
+    }
+
+    function tampilKesalahan(msg) {
+      pesan.textContent = msg;
+      hasil.value = '';
+    }
+
+    function bersihkanPesan() {
+      pesan.textContent = '';
+    }
+
+    function operasi(op) {
+      bersihkanPesan();
+      const a = bacaAngka(bil1);
+      const b = bacaAngka(bil2);
+
+      if (a === null || b === null) {
+        tampilKesalahan('Isi kedua bilangan pada Bil 1 dan Bil 2.');
+        return;
+      }
+      if (!Number.isFinite(a) || !Number.isFinite(b)) {
+        tampilKesalahan('Nilai salah. Masukkan angka valid.');
+        return;
+      }
+
+      let r;
+      switch(op) {
+        case '+': r = a + b; break;
+        case '-': r = a - b; break;
+        case '*': r = a * b; break;
+        case '/':
+          if (b === 0) { tampilKesalahan('Pembagian dengan nol tidak diperbolehkan.'); return; }
+          r = a / b; break;
+        default: tampilKesalahan('Operasi tidak dikenal.'); return;
+      }
+
+      // Jika hasil adalah bilangan bulat tampil tanpa desimal, jika tidak tampil dengan maksimal 10 angka setelah koma
+      if (Number.isInteger(r)) hasil.value = r;
+      else hasil.value = parseFloat(r.toFixed(10)).toString();
+    }
+
+    document.getElementById('tambah').addEventListener('click', () => operasi('+'));
+    document.getElementById('kurang').addEventListener('click', () => operasi('-'));
+    document.getElementById('kali').addEventListener('click', () => operasi('*'));
+    document.getElementById('bagi').addEventListener('click', () => operasi('/'));
+
+    document.getElementById('clear').addEventListener('click', () => {
+      bil1.value = '';
+      bil2.value = '';
+      hasil.value = '';
+      bersihkanPesan();
+      bil1.focus();
+    });
+
+    // Enter pada Bil2 melakukan operasi tambah sebagai default (opsional)
+    bil2.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') operasi('+');
+    });
+  </script>
+</body>
+</html>
