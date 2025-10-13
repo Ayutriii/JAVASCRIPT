@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konversi Nilai ke Huruf</title>
+</head>
+<body>
+    <h1>Konversi Nilai Angka ke Grade Huruf</h1>
+    <p>
+        Masukkan Nilai (0-100): 
+        <input type="number" id="inputNilai" min="0" max="100">
+        <button onclick="konversi()">Konversi</button>
+    </p>
+
+    <p>Grade Anda: <strong id="hasilGrade"></strong></p>
+
+    <script>
+        function konversi() {
+            // Mengambil nilai dari input box
+            let nilai = document.getElementById("inputNilai").value;
+            let grade;
+
+            // Pastikan nilai adalah angka dan dalam rentang yang valid (walaupun sudah ada 'min'/'max')
+            nilai = parseInt(nilai);
+
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                grade = "Input tidak valid";
+            } else if (nilai >= 81) {
+                grade = "A";
+            } else if (nilai >= 71) {
+                grade = "AB";
+            } else if (nilai >= 66) {
+                grade = "B";
+            } else if (nilai >= 61) {
+                grade = "BC";
+            } else if (nilai >= 56) {
+                grade = "C";
+            } else if (nilai >= 41) {
+                grade = "D";
+            } else { // nilai <= 40
+                grade = "E";
+            }
+
+            // Menampilkan hasil grade
+            document.getElementById("hasilGrade").innerHTML = grade;
+        }
+    </script>
+</body>
+</html>
