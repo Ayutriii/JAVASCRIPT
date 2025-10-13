@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+    <link rel="stylesheet" type="text/css" href="gaya.css">
+</head>
+<body>
+
+    <div class="kalkulator">
+        <h1>Kalkulator</h1>
+        <div class="display" id="hasil">0</div>
+
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="hitung('/')">÷</button>
+            <button onclick="hitung('*')">×</button>
+
+            <button onclick="tambahAngka('7')">7</button>
+            <button onclick="tambahAngka('8')">8</button>
+            <button onclick="tambahAngka('9')">9</button>
+            <button class="operator" onclick="hitung('-')">−</button>
+
+            <button onclick="tambahAngka('4')">4</button>
+            <button onclick="tambahAngka('5')">5</button>
+            <button onclick="tambahAngka('6')">6</button>
+            <button class="operator" onclick="hitung('+')">+</button>
+
+            <button onclick="tambahAngka('1')">1</button>
+            <button onclick="tambahAngka('2')">2</button>
+            <button onclick="tambahAngka('3')">3</button>
+            <button onclick="hitung('=')">=</button>
+
+            <button onclick="tambahAngka('0')" style="grid-column: span 2;">0</button>
+            <button onclick="tambahAngka('.')">.</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = "";
+
+        function tambahAngka(value) {
+            currentInput += value;
+            document.getElementById("hasil").innerText = currentInput;
+        }
+
+        function hitung(operator) {
+            if (operator === '=') {
+                try {
+                    currentInput = eval(currentInput).toString();
+                } catch {
+                    currentInput = "Error";
+                }
+            } else {
+                currentInput += operator;
+            }
+            document.getElementById("hasil").innerText = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = "";
+            document.getElementById("hasil").innerText = "0";
+        }
+    </script>
+</body>
+</html>                      
