@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Nilai Angka ke Huruf</title>
+</head>
+<body>
+
+<h1>Konversi Nilai Angka ke Huruf</h1>
+
+    <p>Masukkan Nilai Angka (0-100):</p>
+    <input type="number" id="nilaiAngka" min="0" max="100" placeholder="Contoh: 75">
+    <button onclick="konversiNilai()">Konversi</button>
+    <div id="hasilKonversi"></div>
+    <script>
+        function konversiNilai() {
+            let nilai = document.getElementById("nilaiAngka").value;
+            let nilaiHuruf;
+
+            nilai = parseInt(nilai);
+
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                nilaiHuruf = "Masukkan nilai yang valid (0-100).";
+            } else {
+                if (nilai >= 81) {
+                    nilaiHuruf = "A";
+                } else if (nilai >= 71) {
+                    nilaiHuruf = "AB";
+                } else if (nilai >= 66) {
+                    nilaiHuruf = "B";
+                } else if (nilai >= 61) {
+                    nilaiHuruf = "BC";
+                } else if (nilai >= 56) {
+                    nilaiHuruf = "C";
+                } else if (nilai >= 41) {
+                    nilaiHuruf = "D";
+                } else { 
+                    nilaiHuruf = "E";
+                }
+            }
+            document.getElementById("hasilKonversi").innerHTML = "Nilai Huruf Anda: " + nilaiHuruf;
+        }
+    </script>
+
+</body>
+</html>

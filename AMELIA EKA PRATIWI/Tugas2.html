@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="gayakalkulator.css">
+    <title>Kalkulator Amek</title>
+</head>
+<body>
+
+    <div class="kalkulator-container">
+        <h1>🔢 Kalkulator Sederhana</h1>
+
+        <div class="input-group">
+            <label for="bil1">Bil 1</label>
+            <input type="text" id="bil1" value="0">
+        </div>
+
+        <div class="input-group">
+            <label for="bil2">Bil 2</label>
+            <input type="text" id="bil2" value="0">
+        </div>
+
+        <div class="input-group">
+            <label for="hasil">Hasil</label>
+            <input type="text" id="hasil" readonly>
+        </div>
+
+        <div class="tombol-operasi">
+            <button onclick="hitung('+')">+</button>
+            <button onclick="hitung('-')">−</button>
+            <button onclick="hitung('*')">X</button>
+            <button onclick="hitung('/')">/</button>
+        </div>
+    </div>
+
+    <script>
+        function hitung(operator) {
+            let bil1 = document.getElementById("bil1").value;
+            let bil2 = document.getElementById("bil2").value;
+            let hasil;
+
+            let angka1 = parseFloat(bil1);
+            let angka2 = parseFloat(bil2);
+
+            if (isNaN(angka1) || isNaN(angka2)) {
+                document.getElementById("hasil").value = "Input harus angka!";
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    hasil = angka1 + angka2;
+                    break;
+                case '-':
+                    hasil = angka1 - angka2;
+                    break;
+                case '*':
+                    hasil = angka1 * angka2;
+                    break;
+                case '/':
+                    if (angka2 === 0) {
+                        document.getElementById("hasil").value = "Tidak bisa dibagi 0";
+                        return;
+                    }
+                    hasil = angka1 / angka2;
+                    break;
+                default:
+                    hasil = "Error";
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</body>
+</html>
