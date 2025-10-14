@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konversi Nilai Angka ke Huruf</title>
+  <script>
+    function konversiNilai() {
+      var nilai = parseInt(document.getElementById("angka").value);
+      var hasil = "";
+
+      if (nilai >= 81 && nilai <= 100) {
+        hasil = "A";
+      } else if (nilai >= 71 && nilai <= 80) {
+        hasil = "AB";
+      } else if (nilai >= 66 && nilai <= 70) {
+        hasil = "B";
+      } else if (nilai >= 61 && nilai <= 65) {
+        hasil = "BC";
+      } else if (nilai >= 56 && nilai <= 60) {
+        hasil = "C";
+      } else if (nilai >= 41 && nilai <= 55) {
+        hasil = "D";
+      } else if (nilai >= 0 && nilai <= 40) {
+        hasil = "E";
+      } else {
+        hasil = "Nilai tidak valid";
+      }
+
+      document.getElementById("huruf").value = hasil;
+    }
+  </script>
+</head>
+<body>
+  <h2>Program Konversi Nilai</h2>
+  <p>Masukkan Nilai Angka:</p>
+  <input type="text" id="angka">
+  <input type="button" value="Konversi" onclick="konversiNilai()">
+  <p>Hasil Nilai Huruf:</p>
+  <input type="text" id="huruf" readonly>
+</body>
+</html>

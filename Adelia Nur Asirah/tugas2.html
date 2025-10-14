@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Sederhana</title>
+  <script>
+    function hitung(operasi) {
+      var bil1 = parseFloat(document.getElementById("bil1").value);
+      var bil2 = parseFloat(document.getElementById("bil2").value);
+      var hasil = 0;
+
+      if (operasi == '+') {
+        hasil = bil1 + bil2;
+      } else if (operasi == '-') {
+        hasil = bil1 - bil2;
+      } else if (operasi == '*') {
+        hasil = bil1 * bil2;
+      } else if (operasi == '/') {
+        hasil = bil1 / bil2;
+      }
+
+      document.getElementById("hasil").value = hasil;
+    }
+  </script>
+</head>
+<body>
+  <h2>Kalkulator Sederhana</h2>
+  <p>Bilangan 1: <input type="text" id="bil1"></p>
+  <p>Bilangan 2: <input type="text" id="bil2"></p>
+  <p>Hasil: <input type="text" id="hasil" readonly></p>
+
+  <input type="button" value="+" onclick="hitung('+')">
+  <input type="button" value="-" onclick="hitung('-')">
+  <input type="button" value="×" onclick="hitung('*')">
+  <input type="button" value="÷" onclick="hitung('/')">
+</body>
+</html>
