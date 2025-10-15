@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan 5-6</title>
+</head>
+<body>
+  <h3>Contoh If Else If</h3>
+  <p id="demo"></p>
+
+  <script>
+    var nilai = 75;
+    var grade;
+
+    if (nilai >= 81 && nilai <= 100) grade = "A";
+    else if (nilai >= 71) grade = "AB";
+    else if (nilai >= 66) grade = "B";
+    else if (nilai >= 61) grade = "BC";
+    else if (nilai >= 56) grade = "C";
+    else if (nilai >= 41) grade = "D";
+    else grade = "E";
+
+    document.getElementById("demo").innerHTML = "Nilai Huruf: " + grade;
+  </script>
+</body>
+</html>
