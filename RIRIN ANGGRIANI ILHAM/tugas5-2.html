@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas 2 - Kalkulator Sederhana</title>
+</head>
+<body>
+  <h2>Kalkulator Sederhana</h2>
+
+  <label>Bilangan 1:</label>
+  <input type="text" id="bil1"><br><br>
+
+  <label>Bilangan 2:</label>
+  <input type="text" id="bil2"><br><br>
+
+  <button onclick="hitung('+')">+</button>
+  <button onclick="hitung('-')">-</button>
+  <button onclick="hitung('*')">×</button>
+  <button onclick="hitung('/')">÷</button>
+
+  <h3>Hasil: <span id="hasil"></span></h3>
+
+  <script>
+    function hitung(operator) {
+      var a = parseFloat(document.getElementById("bil1").value);
+      var b = parseFloat(document.getElementById("bil2").value);
+      var hasil;
+
+      if (isNaN(a) || isNaN(b)) {
+        hasil = "Masukkan angka dengan benar!";
+      } else {
+        if (operator === '+') hasil = a + b;
+        else if (operator === '-') hasil = a - b;
+        else if (operator === '*') hasil = a * b;
+        else if (operator === '/') hasil = b !== 0 ? a / b : "Tidak bisa dibagi 0";
+      }
+
+      document.getElementById("hasil").innerHTML = hasil;
+    }
+  </script>
+</body>
+</html>

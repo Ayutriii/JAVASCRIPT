@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas 1 - Konversi Nilai Angka ke Huruf</title>
+</head>
+<body>
+  <h2>Konversi Nilai Angka ke Huruf</h2>
+  <label>Masukkan Nilai Angka: </label>
+  <input type="text" id="nilai">
+  <button onclick="konversi()">Konversi</button>
+
+  <p id="hasil"></p>
+
+  <script>
+    function konversi() {
+      var n = parseInt(document.getElementById("nilai").value);
+      var huruf;
+
+      if (isNaN(n)) {
+        huruf = "Masukkan angka yang valid!";
+      } else if (n >= 81 && n <= 100) {
+        huruf = "A";
+      } else if (n >= 71) {
+        huruf = "AB";
+      } else if (n >= 66) {
+        huruf = "B";
+      } else if (n >= 61) {
+        huruf = "BC";
+      } else if (n >= 56) {
+        huruf = "C";
+      } else if (n >= 41) {
+        huruf = "D";
+      } else if (n >= 0) {
+        huruf = "E";
+      } else {
+        huruf = "Nilai di luar jangkauan.";
+      }
+
+      document.getElementById("hasil").innerHTML =
+        "Nilai huruf: <b>" + huruf + "</b>";
+    }
+  </script>
+</body>
+</html>
