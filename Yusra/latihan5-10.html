@@ -1,0 +1,28 @@
+<html>
+<head>
+<script language="javascript">
+function test() {
+    // Menambahkan parseInt() untuk mengonversi input menjadi bilangan bulat
+    var val1 = parseInt(document.kirim.T1.value);
+    if (!isNaN(val1)) { // Memeriksa apakah input adalah angka
+        if (val1 % 2 == 0)
+            document.kirim.T2.value = "bilangan genap";
+        else
+            document.kirim.T2.value = "bilangan ganjil";
+    } else {
+        // Menampilkan pesan kesalahan jika input bukan angka
+        alert("Masukkan bilangan bulat yang valid.");
+    }
+}
+</script>
+</head>
+<body>
+<form method="POST" name="kirim">
+<p>BIL <input type="text" name="T1" size="20"> MERUPAKAN BIL
+    <input type="text" name="T2" size="20">
+</p>
+<input type="button" value="TEBAK" name="B1" onclick="test()">
+</p>
+</form>
+</body>
+</html>

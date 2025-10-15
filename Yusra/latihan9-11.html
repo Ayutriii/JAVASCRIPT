@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Objek document</title>
+</head>
+<body>
+<!-- Script JavaScript Pertama -->
+<script language="javascript">
+// Fungsi untuk mengubah warna latar belakang
+function ubahWarnaLB(warna) {
+    document.bgColor = warna; // Mengubah warna latar belakang halaman
+}
+
+// Fungsi untuk mengubah warna teks
+function ubahWarnaLD(warna) {
+    document.fgColor = warna; // Mengubah warna teks pada halaman
+}
+</script>
+
+<h1>TEKS</h1>
+<!-- Formulir dan Tombol-tombol -->
+<form>
+    <input type="button" value="Latar Belakang Hijau" onclick="ubahWarnaLB('green')">
+    <input type="button" value="Latar Belakang Putih" onclick="ubahWarnaLB('white')">
+    <input type="button" value="Teks Kuning" onclick="ubahWarnaLD('yellow')">
+    <input type="button" value="Teks Biru" onclick="ubahWarnaLD('blue')">
+</form>
+
+<!-- Script JavaScript Kedua -->
+<script language="javascript">
+// Menampilkan informasi waktu terakhir dimodifikasi
+document.write("Halaman ini dimodifikasi terakhir pada " + document.lastModified);
+</script>
+</body>
+</html>
