@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tugas 5-2</title>
+</head>
+<body>
+  <h3>Kalkulator Sederhana</h3>
+  <form>
+    Bilangan 1: <input type="text" id="bil1"><br><br>
+    Bilangan 2: <input type="text" id="bil2"><br><br>
+    
+    <input type="button" value="+" onclick="hitung('+')">
+    <input type="button" value="-" onclick="hitung('-')">
+    <input type="button" value="x" onclick="hitung('*')">
+    <input type="button" value="/" onclick="hitung('/')"><br><br>
+    
+    Hasil: <input type="text" id="hasil" readonly>
+  </form>
+
+  <script>
+    function hitung(op) {
+      let a = parseFloat(document.getElementById("bil1").value);
+      let b = parseFloat(document.getElementById("bil2").value);
+      let hasil = 0;
+
+      if (isNaN(a) || isNaN(b)) {
+        alert("Masukkan angka yang valid!");
+        return;
+      }
+
+      if (op == "+") hasil = a + b;
+      else if (op == "-") hasil = a - b;
+      else if (op == "*") hasil = a * b;
+      else if (op == "/") {
+        if (b == 0) {
+          alert("Tidak bisa dibagi 0!");
+          return;
+        }
+        hasil = a / b;
+      }
+
+      document.getElementById("hasil").value = hasil;
+    }
+  </script>
+</body>
+</html>
