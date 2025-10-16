@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+    <script language="javascript">
+        function hitung(operator) {
+            var bil1 = parseFloat(document.kalkulator.bil1.value);
+            var bil2 = parseFloat(document.kalkulator.bil2.value);
+            var hasil = 0;
+
+            if (isNaN(bil1) || isNaN(bil2)) {
+                alert("Masukkan kedua angka terlebih dahulu!");
+                return;
+            }
+
+            if (operator == '+') hasil = bil1 + bil2;
+            else if (operator == '-') hasil = bil1 - bil2;
+            else if (operator == '*') hasil = bil1 * bil2;
+            else if (operator == '/') hasil = bil1 / bil2;
+
+            document.kalkulator.hasil.value = hasil;
+        }
+    </script>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+    <form name="kalkulator">
+        <p>Bil 1: <input type="text" name="bil1"></p>
+        <p>Bil 2: <input type="text" name="bil2"></p>
+        <p>Hasil: <input type="text" name="hasil" readonly></p>
+
+        <input type="button" value=" + " onclick="hitung('+')">
+        <input type="button" value=" - " onclick="hitung('-')">
+        <input type="button" value=" X " onclick="hitung('*')">
+        <input type="button" value=" / " onclick="hitung('/')">
+    </form>
+</body>
+</html>
